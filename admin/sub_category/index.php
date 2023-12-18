@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 <?php 
  include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php'); 
  include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); 
  include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php');
  include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/subcategorycontroller.php');
 ?>
+=======
+<?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php'); ?>
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
 <?php
     $category = new SubCategoryController($conn);
     $sub_categories = $category->index();
@@ -40,10 +46,17 @@
                     <thead>
                         <tr>
                             <th>Image</th>
+<<<<<<< HEAD
                             <th>Sub_Category Name</th>
                             <th>Sub_CategoryCategory Slug</th>
                             <th>Category Name</th>
                             <th>Category_id</th>
+=======
+                            <th>Sub Category Name</th>
+                            <th>Sub Category Slug</th>
+                            <th>Category Name</th>
+                            <th>Date</th>
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -53,6 +66,7 @@
                         <?php while ($row = mysqli_fetch_array($sub_categories)) { ?>
                             <tr class="row_<?=$row['sub_category_id']?>">
                                 <td>
+<<<<<<< HEAD
                                     <img width="100px" src="<?=url()?>/assets/images/sub_category/<?=$row['image']?>" alt="">
                                     
                                 </td>
@@ -65,6 +79,18 @@
                                 <td>
                                     <button class="btn btn-danger delete_btn" value ="<?=$row['sub_category_id']?>">Delete</button>
                                     <a href="edit.php?id=<?=$row['id']?>" class= "btn btn-info" >Edit</a>
+=======
+                                    <img width="100px" src="<?=url()?>/assets/images/sub_category/<?=$row['sub_category_image']?>" alt="">
+                                </td>
+                                <td><?=$row['name']?></td>
+                                <td><?=$row['slug']?></td>
+                                <td><?=$row['category_name']?></td>
+                                <td><?=$row['created_at']?></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-danger delete_btn" value="<?=$row['sub_category_id']?>">Delete</button>
+                                    <a href="edit.php?id=<?=$row['id']?>" class="btn btn-info">Edit</a>
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
                                 </td>
                             </tr>
                         <?php } ?>
@@ -83,6 +109,7 @@
 </div>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/footer.php'); ?>
 <script>
+<<<<<<< HEAD
     $('.delete_btn').click(function() {
         console.log($(this).val());
         var id = $(this).val();
@@ -98,3 +125,19 @@
     });
 </script>
 
+=======
+$('.delete_btn').click(function(){
+    console.log($(this).val());
+    var id = $(this).val();
+    $.ajax({
+        url: "<?=url('include/route.php')?>",
+        type: "GET",
+        data:{'route':'delete_sub_category','id':id},
+        success: function(res){
+            console.log(res);
+            $('.row_'+id).remove();
+        }
+    });
+})
+</script>
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906

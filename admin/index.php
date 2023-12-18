@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 if(isset($_GET['logout'])){
@@ -10,11 +11,12 @@ if(!isset($_SESSION['submit'])){
 }
 
 ?>
+=======
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php') ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php'); ?>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -27,7 +29,7 @@ if(!isset($_SESSION['submit'])){
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard v1</li>
+            <li class="breadcrumb-item active">Dashboard</li>
           </ol>
         </div>
       </div>
@@ -76,7 +78,7 @@ if(!isset($_SESSION['submit'])){
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="users/list_users.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -93,11 +95,15 @@ if(!isset($_SESSION['submit'])){
             </div>
             <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
+<<<<<<< HEAD
         </div>
         <!-- ./col -->
       </div>
       <!-- /.row -->
       <!-- Main row -->
+=======
+        </section>
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->

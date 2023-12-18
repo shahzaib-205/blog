@@ -2,6 +2,7 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php') ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php'); ?>
+<<<<<<< HEAD
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/categorycontroller.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/subcategorycontroller.php'); ?>
 
@@ -11,6 +12,13 @@
     $sub_category = new SubCategoryController($conn);
     $result = false;
 
+=======
+<?php
+    $category = new CategoryController($conn);
+    $categories = $category->index();
+    $sub_category = new SubCategoryController($conn);
+    $result = false;
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
     if(isset($_POST['submit']))
     {
         $result = $sub_category->store();
@@ -21,7 +29,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+<<<<<<< HEAD
                 <h1 class="m-0">Create Category</h1>
+=======
+                <h1 class="m-0">Create SubCategory</h1>
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -60,6 +72,10 @@
                                 <?php } } ?>
                                 </select>
                             </div>
+<<<<<<< HEAD
+=======
+                            
+>>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
                                 <div class="input-group">
