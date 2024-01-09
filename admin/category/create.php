@@ -2,11 +2,9 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php') ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php'); ?>
-<<<<<<< HEAD
-<?php include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/categorycontroller.php'); ?>
+<?php 
+// include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/categorycontroller.php'); ?>
 
-=======
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
 <?php
     $category = new CategoryController($conn);
     $result = false;

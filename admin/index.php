@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 session_start();
 if(isset($_GET['logout'])){
@@ -11,8 +11,6 @@ if(!isset($_SESSION['submit'])){
 }
 
 ?>
-=======
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
 
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php') ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
@@ -95,15 +93,12 @@ if(!isset($_SESSION['submit'])){
             </div>
             <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-<<<<<<< HEAD
         </div>
         <!-- ./col -->
       </div>
       <!-- /.row -->
       <!-- Main row -->
-=======
         </section>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
         <!-- right col -->
       </div>
       <!-- /.row (main row) -->

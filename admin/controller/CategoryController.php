@@ -19,7 +19,7 @@ class CategoryController
         if(isset($_FILES['image'])){
             $file_name =  $_FILES['image']['name'];
             $file_tmp  =  $_FILES['image']['tmp_name'];
-            move_uploaded_file($file_tmp,"../../assets/images/category/".$file_name);
+            move_uploaded_file($file_tmp,"./../../assets/images/category/".$file_name);
          }
         $result = $this->conn->query("INSERT INTO categories(title,slug,image)VALUES('".$name."','".$slug."','".$file_name."')");
         return $result;

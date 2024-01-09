@@ -2,12 +2,8 @@
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php') ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php'); ?>
-<<<<<<< HEAD
-<?php include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/categorycontroller.php'); ?>
-=======
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
 <?php
-    $category = new CategoryController($conn);
+    $category = new SubCategoryController($conn);
     $result = false;
     if(isset($_POST['submit']))
     {
@@ -48,7 +44,7 @@
                             <?php } ?>
                             <div class="form-group">
                                 <label for="CategoryName">Category Name</label>
-                                <input type="text" value="<?=$cat['title']?>" name="name" required class="form-control" id="CategoryName" placeholder="Category Name">
+                                <input type="text" value="<?=$cat['name']?>" name="name" required class="form-control" id="CategoryName" placeholder="Category Name">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>

@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-<?php 
- include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php'); 
- include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); 
- include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php');
- include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/subcategorycontroller.php');
-?>
-=======
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php'); ?>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
 <?php
-    $category = new SubCategoryController($conn);
-    $sub_categories = $category->index();
+    $subcategory = new SubCategoryController($conn);
+    $sub_categories = $subcategory->index();
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -21,12 +12,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                <h1 class="m-0">Categories</h1>
+                    <h1 class="m-0">Sub Categories</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="./../index.php">Home</a></li>
-                        <li class="breadcrumb-item active">Categories</li>
+                        <li class="breadcrumb-item active">Sub Categories</li>
                     </ol>
                 </div>
             </div>
@@ -35,109 +26,70 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-12">
-                <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">All Categories</h3>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">All Sub Categories</h3>
+                        </div>
+                        <!-- ./card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Sub Category Name</th>
+                                        <th>Sub Category Slug</th>
+                                        <th>Category Name</th>
+                                        <th>Created_at</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (mysqli_num_rows($sub_categories) > 0) { ?>
+                                        <?php while ($row = mysqli_fetch_array($sub_categories)) { ?>
+                                            <tr class="row_<?=$row['sub_category_id']?>">
+                                                <td>
+                                                    <img width="100px" src="<?=url()?>/assets/images/sub_category/<?=$row['image']?>" alt="">
+                                                </td>
+                                                <td><?=$row['name']?></td>
+                                                <td><?=$row['slug']?></td>
+                                                <td><?=$row['category_name']?></td>
+                                                <td><?=$row['created_at']?></td>
+                                                <td></td>
+                                                <td>
+                                                    <button class="btn btn-danger delete_btn" value="<?=$row['sub_category_id']?>">Delete</button>
+                                                    <a href="edit.php?id=<?=$row['sub_category_id']?>" class="btn btn-info">Edit</a>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php } else { ?>
+                                        <tr>
+                                            <td colspan="7" style="text-align: center;">No Data Found</td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.row (main row) -->
+                    </div><!-- /.container-fluid -->
                 </div>
-                <!-- ./card-header -->
-                <div class="card-body">
-                    <table class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-<<<<<<< HEAD
-                            <th>Sub_Category Name</th>
-                            <th>Sub_CategoryCategory Slug</th>
-                            <th>Category Name</th>
-                            <th>Category_id</th>
-=======
-                            <th>Sub Category Name</th>
-                            <th>Sub Category Slug</th>
-                            <th>Category Name</th>
-                            <th>Date</th>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php if (mysqli_num_rows($sub_categories) > 0) { ?>
-                        <?php while ($row = mysqli_fetch_array($sub_categories)) { ?>
-                            <tr class="row_<?=$row['sub_category_id']?>">
-                                <td>
-<<<<<<< HEAD
-                                    <img width="100px" src="<?=url()?>/assets/images/sub_category/<?=$row['image']?>" alt="">
-                                    
-                                </td>
-                                <td><?=$row['title']?></td>
-                                <td><?=$row['slug']?></td>
-                                <td><?=$row['category_name']?></td>
-                                <td><?=$row['category_id']?></td>
-                                <td><?=$row['created_at']?></td>
-                                <td></td>
-                                <td>
-                                    <button class="btn btn-danger delete_btn" value ="<?=$row['sub_category_id']?>">Delete</button>
-                                    <a href="edit.php?id=<?=$row['id']?>" class= "btn btn-info" >Edit</a>
-=======
-                                    <img width="100px" src="<?=url()?>/assets/images/sub_category/<?=$row['sub_category_image']?>" alt="">
-                                </td>
-                                <td><?=$row['name']?></td>
-                                <td><?=$row['slug']?></td>
-                                <td><?=$row['category_name']?></td>
-                                <td><?=$row['created_at']?></td>
-                                <td></td>
-                                <td>
-                                    <button class="btn btn-danger delete_btn" value="<?=$row['sub_category_id']?>">Delete</button>
-                                    <a href="edit.php?id=<?=$row['id']?>" class="btn btn-info">Edit</a>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
-                                </td>
-                            </tr>
-                        <?php } ?>
-                        <?php } else { ?>
-                            <tr >
-                                <td colspan="6" style="text-align: center;">No Data Found</td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
             </div>
-        <!-- /.row (main row) -->
-        </div><!-- /.container-fluid -->
-    </section>
-  <!-- /.content -->
-</div>
-<?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/footer.php'); ?>
-<script>
-<<<<<<< HEAD
-    $('.delete_btn').click(function() {
-        console.log($(this).val());
-        var id = $(this).val();
-        $.ajax({
-            type: "GET",
-            url: "<?=url('include/route.php')?>",
-            data: {'route':'delete_sub_category','id':id},
-            success: function(res){
-                console.log(res);
-                $('.row_'+id).remove();
-            }
+        </section>
+    </div>
+    <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/footer.php'); ?>
+    <script>
+        $('.delete_btn').click(function() {
+            console.log($(this).val());
+            var id = $(this).val();
+            $.ajax({
+                type: "GET",
+                url: "<?=url('include/route.php')?>",
+                data: {'route':'delete_sub_category','id':id},
+                success: function(res){
+                    console.log(res);
+                    $('.row_'+id).remove();
+                }
+            });
         });
-    });
-</script>
-
-=======
-$('.delete_btn').click(function(){
-    console.log($(this).val());
-    var id = $(this).val();
-    $.ajax({
-        url: "<?=url('include/route.php')?>",
-        type: "GET",
-        data:{'route':'delete_sub_category','id':id},
-        success: function(res){
-            console.log(res);
-            $('.row_'+id).remove();
-        }
-    });
-})
-</script>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
+    </script>

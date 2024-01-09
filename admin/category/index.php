@@ -1,15 +1,6 @@
-<<<<<<< HEAD
-<?php 
- include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php'); 
- include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); 
- include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php');
- include($_SERVER['DOCUMENT_ROOT'].'/blog/admin/controller/categorycontroller.php');
-?>
-=======
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/header.php') ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/nav.php'); ?>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/sidebar.php'); ?>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
 <?php
     $category = new CategoryController($conn);
     $categories = $category->index();
@@ -66,13 +57,8 @@
                                 <td><?=$row['created_at']?></td>
                                 <td></td>
                                 <td>
-<<<<<<< HEAD
-                                    <button class="btn btn-danger delete_btn" value ="<?=$row['id']?>">Delete</button>
-                                    <a href="edit.php?id=<?=$row['id']?>" class= "btn btn-info" >Edit</a>
-=======
                                     <button class="btn btn-danger delete_btn" value="<?=$row['id']?>">Delete</button>
                                     <a href="edit.php?id=<?=$row['id']?>" class="btn btn-info">Edit</a>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
                                 </td>
                             </tr>
                         <?php } ?>
@@ -91,23 +77,6 @@
 </div>
 <?php include($_SERVER['DOCUMENT_ROOT'].'/blog/layout/footer.php'); ?>
 <script>
-<<<<<<< HEAD
-    $('.delete_btn').click(function() {
-        console.log($(this).val());
-        var id = $(this).val();
-        $.ajax({
-            type: "GET",
-            url: "<?=url('include/route.php')?>",
-            data: {'route':'delete_category','id':id},
-            success: function(res){
-                console.log(res);
-                $('.row_'+id).remove();
-            }
-        });
-    });
-</script>
-
-=======
 $('.delete_btn').click(function(){
     console.log($(this).val());
     var id = $(this).val();
@@ -122,4 +91,3 @@ $('.delete_btn').click(function(){
     });
 })
 </script>
->>>>>>> 0655cc176beb39123deeb0192095c1b471a17906
